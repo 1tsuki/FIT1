@@ -8,7 +8,7 @@ npm install puppeteer
 npm install dateformat
 ```
 
-## implement config.json
+## create tools/config.json
 ```json
 {
     "users": [
