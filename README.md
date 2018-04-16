@@ -6,6 +6,7 @@
 ```bash
 npm install puppeteer
 npm install dateformat
+npm install shelljs
 ```
 
 ## create tools/config.json
