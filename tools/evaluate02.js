@@ -92,7 +92,7 @@ function evaluate02_6(userDir, userid) {
       if (await page.$('input[type="checkbox"]') == null) errors.push("checkbox not found");
       if (await page.$('input[type="password"]') == null) errors.push("password not found");
       if (await page.$('input[type="number"]') == null) errors.push("number not found");
-      if (await page.$('input[type="button"]') == null) errors.push("button not found");
+      if (await page.$('input[type="button"]') == null || await page.$('button') == null) errors.push("button not found");
     }
 
     // output result
