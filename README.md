@@ -26,7 +26,7 @@ node evalutate02.js
 
 ## check result
 ```bash
-cd ./work/02_yyyy-mm-dd HHMMss/login name/
+cd ./work/02_HTML/yyyy-mm-dd HHMMss/
 ls -la
 ```
 results will be found here
