@@ -36,8 +36,8 @@ function evaluate02_5(userId) {
       errors.push("Invalid status code: " + response.status())
     } else {
       if (await page.$("sup") == null) errors.push("<sup> not found");
-      if (await page.$("b") == null) errors.push("<b> not found");
-      if (await page.$("s") == null) errors.push("<s> not found");
+      if (await page.$("b") == null && await page.$("strong") == null && await page.$("span[style='font-weight:bold']") == null) errors.push("<b> nor <strong> found");
+      if (await page.$("s") == null && await page.$("strike") == null && await page.$("del") == null) errors.push("<s> nor <strike> nor <del> found");
       if (await page.$("bdo[dir='rtl']") == null) errors.push("<bdo dir='rtl'> not found");
     }
     browser.close();
@@ -46,6 +46,7 @@ function evaluate02_5(userId) {
     if (errors.length > 0) {
       tools.writeFile(resultPath + ".fail", errors);
     } else {
+      console.log(userId + " passed " + taskId)
       tools.writeFile(resultPath + ".success", "success");
     }
   })();
@@ -84,6 +85,7 @@ function evaluate02_6(userId) {
     if (errors.length > 0) {
       tools.writeFile(resultPath + ".fail", errors);
     } else {
+      console.log(userId + " passed " + taskId)
       tools.writeFile(resultPath + ".success", "success");
     }
   })();
