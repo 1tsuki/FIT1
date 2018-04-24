@@ -6,9 +6,12 @@ const rootDirName = 'work';
 
 var tools = {
   // create work dir
-  createWorkDirSync: function(lessonName) {
-    const execDateTime = dateformat(new Date(), 'yyyy-mm-dd HHMMss');
-    const path = rootDirName + "/" + lessonName + "/" + execDateTime + "/";
+  createWorkDirSync: function(lessonName, dirName) {
+    if (!dirName) {
+      dirName = dateformat(new Date(), 'yyyy-mm-dd HHMMss');
+    }
+
+    path = rootDirName + "/" + lessonName + "/" + dirName + "/";
     tools.makeDirByPathSync(path);
 
     return path;

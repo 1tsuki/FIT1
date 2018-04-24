@@ -5,7 +5,7 @@ const tools = require("./tools");
 process.setMaxListeners(0);
 
 // create export dir
-const workDir = tools.createWorkDirSync("02_HTML");
+const workDir = tools.createWorkDirSync("02_HTML", process.argv[2]);
 
 // evaluate files for each users
 const config = require("./config.json");
