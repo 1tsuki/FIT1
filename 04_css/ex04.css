@@ -1,0 +1,26 @@
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.important {
+  color: #FF0000;
+}
+
+table, th, td {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  line-height: 1.5;
+}
+
+th {
+  background: #999999;
+}
+
+td {
+  width: 10em;
+}
+
+tr:nth-child(even) {
+  background: #d9d9d9;
+}
