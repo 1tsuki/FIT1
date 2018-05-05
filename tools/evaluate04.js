@@ -63,7 +63,7 @@ function evaluate04(userId) {
     if (errors.length > 0) {
       tools.writeFile(resultPath, errors);
     } else {
-      console.log(userId + " passed " + taskId)
+      console.log(userId + " may have passed " + taskId)
     }
   })();
 }
