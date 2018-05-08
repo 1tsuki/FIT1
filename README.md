@@ -38,7 +38,7 @@ node evaluate02.js {dirName}
 if you want to execute recursively, use watch command.
 
 ```bash
-watch -n 10 "node evaluate02.js {dirName}"
+watch -n 15 "node evaluate02.js {dirName} | sort"
 ```
 Specifying directory name is highly recommended while using watch command.
 
