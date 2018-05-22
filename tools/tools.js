@@ -30,6 +30,17 @@ var tools = {
         throw err
       }
     });
+  },
+
+  removeFile: function(path) {
+    if (!fs.exists(path)) return;
+    
+    fs.unlink(path, (err) => {
+      if(err){
+        console.log("エラーが発生しました。" + err)
+        throw err
+      }
+    });
   }
 }
 module.exports = tools;

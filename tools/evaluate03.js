@@ -44,9 +44,11 @@ function evaluate03_7(userId) {
 
     // output result
     if (errors.length > 0) {
-      tools.writeFile(resultPath + ".fail", errors);
+      tools.writeFile(resultPath, errors);
+      console.log(userId + " failed " + taskId)
     } else {
-      console.log(userId + " passed " + taskId)
+      tools.removeFile(resultPath);
+      console.log(userId + " may have passed " + taskId)
     }
   })();
 }

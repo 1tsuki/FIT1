@@ -44,10 +44,11 @@ function evaluate02_5(userId) {
 
     // output result
     if (errors.length > 0) {
-      tools.writeFile(resultPath + ".fail", errors);
+      tools.writeFile(resultPath, errors);
+      console.log(userId + " failed " + taskId)
     } else {
-      console.log(userId + " passed " + taskId)
-      tools.writeFile(resultPath + ".success", "success");
+      tools.removeFile(resultPath);
+      console.log(userId + " may have passed " + taskId)
     }
   })();
 }
@@ -83,10 +84,11 @@ function evaluate02_6(userId) {
 
     // output result
     if (errors.length > 0) {
-      tools.writeFile(resultPath + ".fail", errors);
+      tools.writeFile(resultPath, errors);
+      console.log(userId + " failed " + taskId)
     } else {
-      console.log(userId + " passed " + taskId)
-      tools.writeFile(resultPath + ".success", "success");
+      tools.removeFile(resultPath);
+      console.log(userId + " may have passed " + taskId)
     }
   })();
 }

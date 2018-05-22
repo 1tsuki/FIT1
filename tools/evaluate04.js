@@ -64,6 +64,7 @@ function evaluate04(userId) {
       tools.writeFile(resultPath, errors);
       console.log(userId + " failed " + taskId)
     } else {
+      tools.removeFile(resultPath);
       console.log(userId + " may have passed " + taskId)
     }
   })();
