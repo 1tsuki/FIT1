@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>課題06-11修正版</title>
+    <script src="ex06-11-fixed.js"></script>
+  </head>
+
+  <body>
+    <h1>課題06-11修正版</h1>
+    <input type="button" value="Xを表示" onclick="showImage('<img src=x.png>');">
+    <input type="button" value="Oを表示" onclick="showImage('<img src=o.png>');">
+    <input type="button" value="Xを表示して３秒後に元の画像を表示" onclick="showImageAndFallback('<img src=x.png>');">
+    <input type="button" value="Oを表示して３秒後に元の画像を表示" onclick="showImageAndFallback('<img src=o.png>');">
+
+    <!-- div要素に 'img'というidを設定して探索しやすくする -->
+    <div id="img">
+      <!-- ここがinnerHTMLにあたる -->
+      <img src="x.png">
+    </div>
+  </body>
+
+</html>
