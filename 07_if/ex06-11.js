@@ -8,11 +8,11 @@ function showO() {
 }
 
 function showXthenO(){
-  showImageX();
+  showX();
   setTimeout("showO()",3000);
 }
 
 function showOthenX(){
-  showImageO();
+  showO();
   setTimeout("showX()",3000);
 }
