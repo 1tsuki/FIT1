@@ -9,10 +9,10 @@ function showO() {
 
 function showXthenO(){
   showX();
-  setTimeout("showO()",3000);
+  setTimeout("showO()",1000);
 }
 
 function showOthenX(){
   showO();
-  setTimeout("showX()",3000);
+  setTimeout("showX()",1000);
 }
