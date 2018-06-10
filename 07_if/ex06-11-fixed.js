@@ -12,5 +12,5 @@ function showPreviousImage() {
 
 function showImageAndFallback(img){
   showImage(img)
-  setTimeout("showPreviousImage()",3000);
+  setTimeout("showPreviousImage()",1000);
 }
