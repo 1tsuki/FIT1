@@ -4,9 +4,11 @@
 # How to use evaluating tools
 ## 1. install dependencies
 ```bash
+brew install jq
 npm install puppeteer
 npm install dateformat
 npm install shelljs
+npm install child_process
 ```
 Install npm and brew if needed.
 
