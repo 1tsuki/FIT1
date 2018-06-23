@@ -29,7 +29,7 @@ function showCalendar() {
 function refreshCells() {
   for(var i = 0; i < WEEKDAYS.length; i = i + 1) {
     for(var j = 0; j < MAX_ROWNUM; j = j + 1) {
-      document.getElementById(WEEKDAYS[i] + j).innerHTML = "";
+      document.getElementById(WEEKDAYS[i] + j).innerHTML = "-";
     }
   }
 }
@@ -38,9 +38,23 @@ function refreshCells() {
  * 月の開始曜日に応じて、日付に対応するセルを取得する
 **/
 function getCellId(startingWeekDay, date) {
-  let weekDay = WEEKDAYS[(startingWeekDay + date - 1) % 7];
-  let rowNum = Math.floor((startingWeekDay + date - 1) / 7);
-  return weekDay + rowNum;
+  let weekDay = getWeekDayOfMonth(startingWeekDay, date);
+  let weekNum = getWeekNumOfMonth(startingWeekDay, date);
+  return weekDay + weekNum;
+}
+
+/**
+ * 月初の曜日から逆算して対象日付の曜日を算出する
+**/
+function getWeekDayOfMonth(startingWeekDay, date) {
+  return WEEKDAYS[(startingWeekDay + date - 1) % 7];
+}
+
+/**
+ * 月初の曜日から逆算して対象日付の週番号を算出する (0 origin)
+**/
+function getWeekNumOfMonth(startingWeekDay, date) {
+  return Math.floor((startingWeekDay + date - 1) / 7);
 }
 
 /**
@@ -65,15 +79,15 @@ function isLeapYear(year) {
  * ツェラーの公式は土曜日originであるため、最後の処理で日曜日originに修正している
 **/
 function getWeekDay(year, month, day) {
-  // 紀元前は訂正が必要
+  // 紀元前1年は0年として計算する必要がある
   if (year < 0) {
     year = 1 + year;
   }
 
   // 1月,2月は前年の13月,14月として扱う
   if (month <= 2) {
-    year = year - 1;
     month = month + 12;
+    year = year - 1;
   }
 
   // ツェラーの公式
@@ -84,7 +98,6 @@ function getWeekDay(year, month, day) {
   // 土曜日Originを日曜日Originに修正
   return (weekDay + 6) % 7;
 }
-
 
 function _calculateGamma(year) {
   let c =  Math.floor(year / 100);
