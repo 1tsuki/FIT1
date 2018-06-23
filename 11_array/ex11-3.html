@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>練習問題11-3</title>
+    <script src="ex11-3.js"></script>
+  </head>
+
+  <body>
+    <h1>カレンダー</h1>
+    <dir>
+      <p>
+        西暦<input type="number" id="year" value="2018" />年
+        <select name="month">
+          <option value="1">1月</option>
+          <option value="2">2月</option>
+          <option value="3">3月</option>
+          <option value="4">4月</option>
+          <option value="5">5月</option>
+          <option value="6">6月</option>
+          <option value="7">7月</option>
+          <option value="8">8月</option>
+          <option value="9">9月</option>
+          <option value="10">10月</option>
+          <option value="11">11月</option>
+          <option value="12">12月</option>
+        </select>
+        のカレンダーを
+        <input type="button" onclick="showCalendar();" value="描画する" />
+      </p>
+    </div>
+    <h2 id="title"></h2>
+    <table id="calendar" border="1" cellspacing="0">
+      <tr>
+        <th>日</th>
+        <th>月</th>
+        <th>火</th>
+        <th>水</th>
+        <th>木</th>
+        <th>金</th>
+        <th>土</th>
+      </tr>
+      <tr>
+        <td id="sun0"></td>
+        <td id="mon0"></td>
+        <td id="tue0"></td>
+        <td id="wed0"></td>
+        <td id="thu0"></td>
+        <td id="fri0"></td>
+        <td id="sat0"></td>
+      </tr>
+      <tr>
+        <td id="sun1"></td>
+        <td id="mon1"></td>
+        <td id="tue1"></td>
+        <td id="wed1"></td>
+        <td id="thu1"></td>
+        <td id="fri1"></td>
+        <td id="sat1"></td>
+      </tr>
+      <tr>
+        <td id="sun2"></td>
+        <td id="mon2"></td>
+        <td id="tue2"></td>
+        <td id="wed2"></td>
+        <td id="thu2"></td>
+        <td id="fri2"></td>
+        <td id="sat2"></td>
+      </tr>
+      <tr>
+        <td id="sun3"></td>
+        <td id="mon3"></td>
+        <td id="tue3"></td>
+        <td id="wed3"></td>
+        <td id="thu3"></td>
+        <td id="fri3"></td>
+        <td id="sat3"></td>
+      </tr>
+      <tr>
+        <td id="sun4"></td>
+        <td id="mon4"></td>
+        <td id="tue4"></td>
+        <td id="wed4"></td>
+        <td id="thu4"></td>
+        <td id="fri4"></td>
+        <td id="sat4"></td>
+      </tr>
+      <tr>
+        <td id="sun5"></td>
+        <td id="mon5"></td>
+        <td id="tue5"></td>
+        <td id="wed5"></td>
+        <td id="thu5"></td>
+        <td id="fri5"></td>
+        <td id="sat5"></td>
+      </tr>
+    </table>
+  </body>
+
+</html>
