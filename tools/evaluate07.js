@@ -1,32 +1,88 @@
-const tools = require("./tools");
-const config = require("./config.json");
-const http = require('http');
+const Evaluator = require("./lib/evaluator");
 const fs = require('fs');
+const students = JSON.parse(fs.readFileSync('.config.json', 'utf8'));
+
+// surpress warnings
+process.setMaxListeners(0);
+
+// create export dir
+const evaluator = new Evaluator(students, '07_if');
+evaluator.evaluate('ex07-2', 'html', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
+
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
+
+evaluator.evaluate('ex07-2', 'js', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
+
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
+
+evaluator.evaluate('ex07-4', 'html', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
+
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
+
+evaluator.evaluate('ex07-4', 'js', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
+
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
+evaluator.evaluate('ex07-10', 'html', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
+
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
+
+evaluator.evaluate('ex07-10', 'js', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
+
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
 
 
-// create workDir
-const workDir = tools.createWorkDirSync("07_if", process.argv[2]);
+evaluator.evaluate('ex07-12', 'html', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
 
-// loop for users
-config.users.forEach(function(userId, i, a) {
-  // create userDir
-  userDir = workDir + userId + "/";
-  tools.makeDirByPathSync(userDir);
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
+});
 
-  // loop for tasks
-  ["ex07-2", "ex07-4", "ex07-10", "ex07-12"].forEach(function(taskId, j, b) {
-    // loop for file extensions
-    [".html", ".js"].forEach(function(extension, k, c) {
+evaluator.evaluate('ex07-12', 'js', async function(page) {
+  const errors = [];
+  let text = await page.evaluate(() => document.documentElement.outerHTML);
 
-      var targetFilePath = userDir + taskId + extension;
-      var targetUrl = "http://web.sfc.keio.ac.jp/~" + userId + "/" + taskId + extension;
-      var request = http.get(targetUrl, function(response) {
-        if (response.statusCode == 200) {
-          console.log(userId + ' has already submitted ' + taskId);
-          var file = fs.createWriteStream(targetFilePath);
-          response.pipe(file);
-        }
-      });
-    });
-  });
+  if (!text) {
+    errors.push("text not found");
+  }
+  return errors;
 });

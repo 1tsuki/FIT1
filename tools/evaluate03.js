@@ -1,54 +1,19 @@
-const puppeteer = require("puppeteer");
-const tools = require("./tools");
+const Evaluator = require("./lib/evaluator");
+const fs = require('fs');
+const students = JSON.parse(fs.readFileSync('.config.json', 'utf8'));
 
 // surpress warnings
 process.setMaxListeners(0);
 
 // create export dir
-const workDir = tools.createWorkDirSync("03_web", process.argv[2]);
-
-// evaluate files for each users
-const config = require("./config.json");
-config.users.forEach(function(userId, index, array) {
-  evaluate03_7(userId);
+const evaluator = new Evaluator(students, '03_web');
+evaluator.evaluate('ex03-7', 'html', async function(page) {
+  const errors = [];
+  if (await page.$("a") == null) errors.push("<a>not found");
+  if (await page.$("ul") == null) errors.push("<ul> not found");
+  if (await page.$("li") == null) errors.push("<li> found");
+  return errors;
 });
 
-function evaluate03_7(userId) {
-  const taskId = "ex03-7"
-  const targetUrl = "http://web.sfc.keio.ac.jp/~" + userId + "/ex03/report.html";
-  const htmlPath = workDir + userId + "_" + taskId + ".html";
-  const resultPath = workDir + userId + "_" + taskId + ".log";
 
-  (async () => {
-    // initialize puppeteer
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
 
-    // load and save html source
-    const response = await page.goto(targetUrl);
-    const body = await page.evaluate(() => document.body.innerHTML);
-
-    // evaluate contents
-    let errors = [];
-    if (200 > response.status() || 300 <= response.status()) {
-      errors.push("Invalid status code: " + response.status())
-    } else {
-      tools.writeFile(htmlPath, body);
-      if (await page.$("p") == null) errors.push("<p> not found");
-      if (await page.$("br") == null) errors.push("<br> found");
-      if (await page.$("a") == null) errors.push("<a>not found");
-      if (body.length < 400) errors.push("report is too short");
-    }
-
-    browser.close();
-
-    // output result
-    if (errors.length > 0) {
-      tools.writeFile(resultPath, errors);
-      console.log(userId + " failed " + taskId)
-    } else {
-      tools.removeFile(resultPath);
-      console.log(userId + " may have passed " + taskId)
-    }
-  })();
-}

@@ -1,0 +1,25 @@
+{
+  "name": "fit1",
+  "version": "1.0.0",
+  "description": "Teaching materials of \"[Fundamendals of Information Technology](https://itclass.sfc.keio.ac.jp/text/info1-2018-4/%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB/)\", class of Keio University Shonan Fujisawa Campus.",
+  "main": "index.js",
+  "dependencies": {
+    "dateformat": "^3.0.3",
+    "fs-extra": "^7.0.1",
+    "puppeteer": "^1.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1tsuki/FIT1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1tsuki/FIT1/issues"
+  },
+  "homepage": "https://github.com/1tsuki/FIT1#readme"
+}
